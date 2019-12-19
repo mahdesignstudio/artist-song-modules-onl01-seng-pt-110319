@@ -1,21 +1,7 @@
-require 'pry'
+module Findable
 
-class Song
-  extend Memorable::ClassMethods
-  include Memorable::InstanceMethods
-  extend Findable
-  include Paramable
+    def find_by_name(name)
+        self.all.detect {|a| a.name == name}
+    end
 
-  attr_accessor :name
-  attr_reader :artist
-
-  @@songs = []
-
-  def self.all
-    @@songs
-  end
-
-  def artist=(artist)
-    @artist = artist
-  end
 end
